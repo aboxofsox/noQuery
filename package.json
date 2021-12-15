@@ -1,0 +1,24 @@
+{
+  "name": "noquery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild ./lib/noQuery.js --bundle --outfile=./dist/noQuery.js --sourcemap",
+    "min": "esbuild ./lib/noQuery.js --bundle --outfile=./dist/noQuery.js --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aboxofsox/noQuery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aboxofsox/noQuery/issues"
+  },
+  "homepage": "https://github.com/aboxofsox/noQuery#readme",
+  "dependencies": {
+    "esbuild": "^0.14.5"
+  }
+}
