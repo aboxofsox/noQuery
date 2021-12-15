@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild ./src/noQuery.js --bundle --outfile=./dist/noQuery.js --sourcemap",
-    "min": "esbuild ./src/noQuery.js --bundle --outfile=./dist/noQuery.min.js --minify"
+    "build": "esbuild ./src/noQuery.js --outfile=./dist/noQuery.js --sourcemap",
+    "min": "esbuild ./src/noQuery.js --outfile=./dist/noQuery.min.js --minify"
   },
   "repository": {
     "type": "git",
