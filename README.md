@@ -5,6 +5,8 @@ First and foremost, it should go without saying, if you care about the quality o
 
 ### Usage
 The best way to use this library is to just import the CDN.
+
+[CND](https://cdn.jsdelivr.net/gh/aboxofsox/noQuery@main/dist/noQuery.min.js)
 ```js
 import noQuery from 'https://cdn.jsdelivr.net/gh/aboxofsox/noQuery@main/dist/noQuery.min.js'
 noQuery.init()
