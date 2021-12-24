@@ -1,10 +1,7 @@
 class noQuery {
   static init() {
-    window.$ =
-      document.querySelectorAll.bind(document) ||
-      document.querySelector.bind(document);
+    window.$ = document.querySelectorAll.bind(document)
     window.$_ = document.createElement.bind(document);
-
     Node.prototype.on = window.on = function (name, fn) {
       this.addEventListener(name, fn);
     }
@@ -15,7 +12,7 @@ class noQuery {
 
     Node.prototype.text = function (text) {
       if (!text) return this.textContent;
-      return (this.textContent += text);
+      return this.textContent = text;
     }
 
     Node.prototype.html = function (html) {
@@ -41,6 +38,7 @@ class noQuery {
         this.css('display', 'none')
     }
 
+
     Node.prototype.fadeOut = function() {
       this.css('opacity', '1')
       this.css('transition', 'opacity 0.2s ease-in-out')
@@ -57,12 +55,13 @@ class noQuery {
       this.style.fontFamily = value;
     }
 
-    Node.prototype.toggle = function(toggle = false) {
-      toggle = !toggle
+    Node.prototype.toggleState = false
 
-      if (toggle) this.css('display', 'none')
-      else if (!toggle) this.css('display', 'block')
-      console.log(toggle)
+    Node.prototype.toggle = function(target) {
+      this.toggleState = !this.toggleState
+
+      if (toggle) target.css('display', 'none')
+      else if (!toggle) target.css('display', 'block')
     }
 
     Node.prototype.slideDown = function() {
@@ -99,7 +98,7 @@ class noQuery {
     }
 
     NodeList.prototype.each = function (fn) {
-      return [...this].forEach(fn);
+      return this.forEach(fn);
     }
 
     NodeList.prototype.append = function (child) {
@@ -111,17 +110,32 @@ class noQuery {
     }
 
     NodeList.prototype.text = function(text) {
-      this.forEach(i => (!text) ? i.textContent : i.textContent = text)
+      if (this.length == 1) return (!text) ? this[0].textContent : this[0].textContent = text
+      this.each(i => (!text) ? i.textContent : i.textContent = text)
     }
 
     NodeList.prototype.css = function(prop, value) {
+      prop = ((prop.charAt(0) === '-') ? prop.substring(1) : prop)
       let p = prop
         .replace(/(?:^\w|[A-Z]|\b\w)/g, (str, i) => {
           return i == 0 ? str.toLowerCase() : str.toUpperCase();
         })
-        .replace("-", "");
+        .replaceAll("-", "");
+        if ((p.charAt(0) === 'm' && p.charAt(1) === 'o') || p.charAt(0) === 'o') p = p.charAt(0).toUppserCase() + p.slice(1)
       this.each(item => {
         item.style[p] = value
+      })
+    }
+
+    NodeList.prototype.toggleState = false
+
+    NodeList.prototype.toggle = function(fn1, fn2) {
+      this.each(i => {
+        i.on('click', _ => {
+          i.toggleState = !i.toggleState
+          if (i.toggleState) fn1()
+          else fn2()
+        })
       })
     }
 
@@ -149,17 +163,6 @@ class noQuery {
         i.css('transition', 'opacity 0.2s ease-in-out')
         i.css('opacity', '1')
       })
-    }
-
-    NodeList.prototype.toggle = function() {
-      let toggle;
-      this.each(i => {
-        if (toggle) toggle = false
-        else if (!toggle) toggle = true
-
-        toggle ? i.css('display', 'none') : i.css('display', 'block')
-      })
-      console.log(toggle)
     }
 
     NodeList.prototype.slideDown = function() {
@@ -201,6 +204,10 @@ class noQuery {
       return this[this.length - 1]
     }
 
+    NodeList.prototype.nth = function(n) {
+      return this[n]
+    }
+
     NodeList.prototype.mouseenter = function(fn) {
       this.each(i => i.addEventListener('mouseenter', fn))
     }
@@ -228,25 +235,8 @@ class noQuery {
     Array.prototype.each = function (fn) {
       this.forEach(fn);
     }
-
-    Array.prototype.sum = function() {
-      let res = 0
-      for (let i = 0; i < this.length; i++) {
-        res += this[i]
-      }
-      return res
-    }
-
-    Array.prototype.avg = function() {
-      let res = 0
-      for (let i = 0; i < this.length; i++) {
-        res += this[i]
-      }
-      return res / this.length
-    }
-  }
-  static traveral() {
-      window.$ = document.querySelectorAll.bind(document) || document.querySelector.bind(document)
   }
 }
-export default noQuery
+
+// Initialize noQuery
+noQuery.init()

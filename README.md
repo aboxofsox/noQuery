@@ -79,8 +79,8 @@ $('#hide-btn').on('click', _ => $('#hide-btn').hide())
 
 #### Todo
 - [ ] show()
-- [ ] toggle()
+- [ x ] toggle()
 - [ ] Specific event listeners `$('#some-id').mouseenter(() => {})`
-- [ ] Fix known issues with the `document.querySelctorAll()` binding.
+- [ x ] Fix known issues with the `document.querySelctorAll()` binding.
 
 Again, and I can't stress this enough, this wasn't meant to be used in a production environment. I just wanted to see if it were possible to create such a syntax without the bloaty garbage that came with jQuery. Turns out, you can, but with limitations if you don't handle the state of things.

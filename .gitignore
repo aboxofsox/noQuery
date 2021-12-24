@@ -1,2 +1,6 @@
-index.html
-./styles
+/index.html
+/package.json
+/package-lock.json
+styles/
+node_modules/
+./dist/noQuery.js.map
