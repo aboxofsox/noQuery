@@ -52,7 +52,6 @@
           target.css("display", "none");
         else if (!toggle)
           target.css("display", "block");
-        console.log(toggle);
       };
       Node.prototype.slideDown = function() {
         this.css("max-height", "0");
@@ -100,7 +99,6 @@
         let p = prop.replace(/(?:^\w|[A-Z]|\b\w)/g, (str, i) => {
           return i == 0 ? str.toLowerCase() : str.toUpperCase();
         }).replaceAll("-", "");
-        console.log(p);
         if (p.charAt(0) === "m" && p.charAt(1) === "o" || p.charAt(0) === "o")
           p = p.charAt(0).toUppserCase() + p.slice(1);
         this.each((item) => {
@@ -112,7 +110,6 @@
         this.each((i) => {
           i.on("click", (_) => {
             i.toggleState = !i.toggleState;
-            console.log(i.toggleState);
             if (i.toggleState)
               fn1();
             else
@@ -206,4 +203,3 @@
   };
   noQuery.init();
 })();
-//# sourceMappingURL=noQuery.js.map

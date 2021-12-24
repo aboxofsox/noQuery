@@ -7,7 +7,7 @@
     "build": "esbuild ./src/noQuery.js --bundle --outfile=./dist/noQuery.js --sourcemap",
     "min": "esbuild ./src/noQuery.js --outfile=./dist/noQuery.min.js --minify",
     "dev": "esbuild ./src/noQuery.js --bundle --outfile=./dist/noQuery.js --watch",
-    "prod": "esbuild ./src/noQuery.js --bundle --outfile=./dist/noQuery.js && esbuild ./src/noQuery.js --bundle -outfile=./dist/noQuery.min.js --minify"
+    "prod": "esbuild ./src/noQuery.js --bundle --outfile=./dist/noQuery.js && esbuild ./src/noQuery.js --bundle --outfile=./dist/noQuery.min.js --minify"
   },
   "repository": {
     "type": "git",
