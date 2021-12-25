@@ -76,11 +76,23 @@ $('#hide-btn').on('click', _ => $('#hide-btn').hide())
 ```
 `$().show()` is currently in the works.
 
+### Toggle switch
+`toggle()` takes in two functions, and toggles between them. 
+```js
+$('#toggle').toggle(
+  _ => $('#target').fadeOut(),
+  _ $('#target).fadeIn()
+)
+```
+
 
 #### Todo
 - [ ] show()
 - [x] toggle()
 - [ ] Specific event listeners `$('#some-id').mouseenter(() => {})`
 - [x] Fix known issues with the `document.querySelctorAll()` binding.
+- [ ] Transitions
+- [ ] Slide in and out
+- [ ] Slide direction 
 
 Again, and I can't stress this enough, this wasn't meant to be used in a production environment. I just wanted to see if it were possible to create such a syntax without the bloaty garbage that came with jQuery. Turns out, you can, but with limitations if you don't handle the state of things.
