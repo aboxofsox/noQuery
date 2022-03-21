@@ -1,5 +1,5 @@
 # noQuery
-A reqlly dumb implementation of jQuery-like syntax.
+A really dumb implementation of jQuery-like syntax.
 
 First and foremost, it should go without saying, if you care about the quality of your code **do not use this library**. It's bad voodoo to create new prototype methods. Anyways, this really isn't for anyone that *actually* cares about code, it does target jQuery users after all...
 
